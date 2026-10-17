@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVA AILUX — Innovación en Cada Detalle | Playeras Personalizadas</title>
+    <style>
+        :root {
+            --primary: #00f2fe;
+            --secondary: #4facfe;
+            --dark-bg: #0b0f19;
+            --card-bg: #151c2e;
+            --text-light: #f1f5f9;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(11, 15, 25, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo span {
+            font-size: 0.75rem;
+            display: block;
+            letter-spacing: 3px;
+            color: var(--text-muted);
+            font-weight: 400;
+            -webkit-text-fill-color: var(--text-muted);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #000;
+            font-weight: 700;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 242, 254, 0.4);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
+            background: radial-gradient(circle at top right, rgba(0, 242, 254, 0.15), transparent 40%);
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .badge {
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--primary);
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+        }
+
+        .section-container {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .simulator-section {
+            padding: 6rem 2rem;
+            background: rgba(21, 28, 46, 0.5);
+        }
+
+        .simulator-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 24px;
+        }
+
+        @media (max-width: 800px) {
+            .simulator-container { grid-template-columns: 1fr; }
+        }
+
+        .tshirt-preview {
+            background: #000;
+            border-radius: 20px;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 350px;
+            position: relative;
+            border: 2px dashed rgba(255,255,255,0.1);
+        }
+
+        .print-box {
+            border: 2px dashed var(--primary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            color: var(--primary);
+            font-weight: bold;
+            text-align: center;
+            background: rgba(0, 242, 254, 0.05);
+        }
+
+        .control-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        .option-btn {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-light);
+            padding: 0.8rem;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .option-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #000;
+        }
+
+        footer {
+            background: #070a10;
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                NOVA AILUX
+                <span>INNOVACIÓN EN CADA DETALLE</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#calidad">Calidad</a></li>
+                    <li><a href="#personalizador">Diseñador</a></li>
+                </ul>
+            </nav>
+            <button class="btn-primary" onclick="window.open('https://wa.me/5219930000000?text=Hola%20NOVA%20AILUX,%20quisiera%20pedir%20información', '_blank')">WhatsApp</button>
+        </div>
+    </header>
+
+    <!-- INICIO -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <span class="badge">Confección Premium & Impresión DTF</span>
+            <h1>Playeras Personalizadas <span>100% Algodón</span></h1>
+            <p>Transformamos tus ideas, marcas y proyectos en prendas únicas de alta definición en Macuspana, Tabasco.</p>
+            <a href="#personalizador" class="btn-primary">Diseñar Mi Playera</a>
+        </div>
+    </section>
+
+    <!-- SOBRE NOSOTROS -->
+    <section class="section-container" id="nosotros">
+        <div class="section-title">
+            <h2>Nuestra Historia & Motivación</h2>
+            <p style="color: var(--text-muted); max-width: 800px; margin: 0 auto; font-size: 1.1rem;">
+                En <strong>NOVA AILUX</strong> nacimos con la convicción de ofrecer prendas donde la calidad no sea una coincidencia, sino el resultado de cuidar cada paso del proceso. Fusionamos la suavidad de telas finas 100% algodón con tecnología de estampado DTF de alta definición para brindar comodidad, durabilidad e identidad en cada detalle.
+            </p>
+        </div>
+    </section>
+
+    <!-- CALIDAD -->
+    <section class="section-container" id="calidad" style="background: rgba(21, 28, 46, 0.3); border-radius: 30px;">
+        <div class="section-title">
+            <h2>Por Qué Elegirnos</h2>
+        </div>
+
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-icon">🧵</div>
+                <h3>100% Algodón Premium</h3>
+                <p>Telas ultra suaves, frescas y de excelente confección. Disponibles en camisas negras tallas CH, M y G.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🎨</div>
+                <h3>Impresión DTF Full Color</h3>
+                <p>Estampados de alta definición con tonos vivos, nitidez absoluta y resistencia superior lavado tras lavado.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🚀</div>
+                <h3>Muestra Digital Gratis</h3>
+                <p>Te enviamos un mockup antes de imprimir para asegurarnos de que tu diseño sea exactamente lo que deseas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SIMULADOR INTERACTIVO -->
+    <section class="simulator-section" id="personalizador">
+        <div class="section-title">
+            <h2>Simulador de Pedido Interactivo</h2>
+            <p style="color: var(--text-muted);">Elige tus preferencias y envía la cotización directo a nuestro WhatsApp</p>
+        </div>
+
+        <div class="simulator-container">
+            <div class="tshirt-preview">
+                <div class="print-box" id="previewArea">
+                    Pecho Central
+                </div>
+            </div>
+
+            <div class="simulator-controls">
+                <div class="control-group">
+                    <label>1. Talla (Playera Negra 100% Algodón):</label>
+                    <div class="options-grid">
+                        <button class="option-btn active" onclick="setSize('CH', this)">CH</button>
+                        <button class="option-btn" onclick="setSize('M', this)">M</button>
+                        <button class="option-btn" onclick="setSize('G', this)">G</button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>2. Ubicación del Estampado:</label>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="setLocation('Pecho Izquierdo', this)">Pecho Izq.</button>
+                        <button class="option-btn active" onclick="setLocation('Pecho Central', this)">Pecho Centro</button>
+                        <button class="option-btn" onclick="setLocation('Espalda Grande', this)">Espalda</button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>3. Tipo de Diseño:</label>
+                    <div class="options-grid">
+                        <button class="option-btn active" onclick="setType('Negocio / Logo', this)">Negocio</button>
+                        <button class="option-btn" onclick="setType('Personal / Frase', this)">Personal</button>
+                        <button class="option-btn" onclick="setType('Regalo / Foto', this)">Regalo</button>
+                    </div>
+                </div>
+
+                <button class="btn-primary" style="width: 100%; margin-top: 1.5rem;" onclick="sendOrder()">
+                    📲 Cotizar por WhatsApp
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 NOVA AILUX — Macuspana, Tabasco · Innovación en Cada Detalle</p>
+    </footer>
+
+    <script>
+        let selectedSize = 'CH';
+        let selectedLocation = 'Pecho Central';
+        let selectedType = 'Negocio / Logo';
+
+        // Reemplaza este número por tu número de WhatsApp real (con código de país sin signo +)
+        const whatsappNumber = "5219930000000"; 
+
+        function setSize(size, el) {
+            selectedSize = size;
+            el.parentElement.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'));
+            el.classList.add('active');
+        }
+
+        function setLocation(loc, el) {
+            selectedLocation = loc;
+            document.getElementById('previewArea').innerText = loc;
+            el.parentElement.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'));
+            el.classList.add('active');
+        }
+
+        function setType(type, el) {
+            selectedType = type;
+            el.parentElement.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'));
+            el.classList.add('active');
+        }
+
+        function sendOrder() {
+            const msg = `Hola NOVA AILUX! Quisiera cotizar una playera con el simulador web:%0A• Talla: ${selectedSize}%0A• Ubicación: ${selectedLocation}%0A• Tipo de diseño: ${selectedType}%0A%0A¿Me podrían dar más información?`;
+            window.open(`https://wa.me/${whatsappNumber}?text=${msg}`, '_blank');
+        }
+    </script>
+</body>
+</html>
